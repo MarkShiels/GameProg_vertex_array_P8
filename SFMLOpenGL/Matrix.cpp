@@ -147,9 +147,22 @@ float Matrix3::point(int i)
 	case 1:
 		return m_A11;
 	case 2:
-		return m_A22;
+		return m_A12;
 	case 3:
+		return m_A13;
+	case 4:
+		return m_A21;
+	case 5:
+		return m_A22;
+	case 6:
+		return m_A23;
+	case 7: 
+		return m_A31;
+	case 8:
+		return m_A32;
+	case 9:
 		return m_A33;
+
 	default:
 		break;
 	}

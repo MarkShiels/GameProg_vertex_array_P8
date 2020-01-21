@@ -23,7 +23,7 @@ Game::~Game() {}
 	float verticesF1[] = { mFront1.m_A11, mFront1.m_A12, mFront1.m_A13, mFront1.m_A21, mFront1.m_A22, mFront1.m_A23, mFront1.m_A31, mFront1.m_A32, mFront1.m_A33 };
 
 	Matrix3 mFront0Alt = (mFront0.rotationX(rotationAngle)) * mFront0;
-	//float verticesF0Alt[] = { mFront0Alt.m_A11, mFront0Alt.m_A12, mFront0Alt.m_A13, mFront0Alt.m_A21, mFront0Alt.m_A22, mFront0Alt.m_A23, mFront0Alt.m_A31, mFront0Alt.m_A32, mFront0Alt.m_A33 };
+	float verticesF0Alt[] = { mFront0Alt.m_A11, mFront0Alt.m_A12, mFront0Alt.m_A13, mFront0Alt.m_A21, mFront0Alt.m_A22, mFront0Alt.m_A23, mFront0Alt.m_A31, mFront0Alt.m_A32, mFront0Alt.m_A33 };
 
 	// Vertices for Rear Face
 	//float verticesB0[] = { 1.0f, 1.0f, -15.0f, -1.0f, 1.0f, -15.0f, -1.0f, -1.0f, -15.0f };
@@ -115,8 +115,12 @@ void Game::render()
 {
 
 	mFront0Alt = mFront0.rotationX(rotationAngle) * mFront0;
-	float verticesF0Alt[] = { mFront0Alt.m_A11, mFront0Alt.m_A12, mFront0Alt.m_A13, mFront0Alt.m_A21, mFront0Alt.m_A22, mFront0Alt.m_A23, mFront0Alt.m_A31, mFront0Alt.m_A32, mFront0Alt.m_A33 };
-
+	//float verticesF0Alt[] = { mFront0Alt.m_A11, mFront0Alt.m_A12, mFront0Alt.m_A13, mFront0Alt.m_A21, mFront0Alt.m_A22, mFront0Alt.m_A23, mFront0Alt.m_A31, mFront0Alt.m_A32, mFront0Alt.m_A33 };
+	for (int i{ 0 }; i < 9; i++)
+	{
+		verticesF0Alt[i] = mFront0Alt.point(i);
+		//cout << mFront0Alt.point(i) << endl;
+	}
 	//cout << "Drawing" << endl;
 	//glDrawArrays(GL_TRIANGLES, 0, 3);
 	glEnableClientState(GL_VERTEX_ARRAY);
