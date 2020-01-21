@@ -140,6 +140,22 @@ Vector3 Matrix3::row(int i)
 	}
 }
 
+float Matrix3::point(int i)
+{
+	switch (i)
+	{
+	case 1:
+		return m_A11;
+	case 2:
+		return m_A22;
+	case 3:
+		return m_A33;
+	default:
+		break;
+	}
+
+}
+
 // a method to return as column as vector3 1 == first column
 Vector3 Matrix3::column(int i)
 {
@@ -240,7 +256,7 @@ Matrix3 Matrix3::operator -()
 Matrix3 Matrix3::rotationX(float angle)
 {
 	float radians = M_PI / 180 * angle;
-	Matrix3 answer = Matrix3();
+	/*Matrix3 answer = Matrix3();
 	answer.m_A11 = 1;
 	answer.m_A12 = 0;
 	answer.m_A13 = 0;
@@ -249,9 +265,13 @@ Matrix3 Matrix3::rotationX(float angle)
 	answer.m_A23 = -sin(radians);
 	answer.m_A31 = 0;
 	answer.m_A32 = sin(radians);
-	answer.m_A33 = cos(radians);
+	answer.m_A33 = cos(radians);*/
 
-	return answer;
+	return Matrix3(
+					1,0,0,
+					0, cos(radians), -sin(radians),
+					0, sin(radians), cos(radians)
+					);
 }
 
 Matrix3 Matrix3::rotationY(float angle)

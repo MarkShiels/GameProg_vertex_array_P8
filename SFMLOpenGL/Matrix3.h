@@ -55,6 +55,8 @@ public:
 	// a method to return as Row as vector3 1 == first row
 	Vector3 row(int i);
 
+	float point(int i);
+
 	// a method to return as column as vector3 1 == first column
 	Vector3 column(int i);
 
